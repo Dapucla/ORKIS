@@ -14,52 +14,52 @@
         <div class="row">
             <div class="d-flex flex-row justify-content-between bd-highlight col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Изменить клиента: {{ $client->id }}</h2>
+                    <h2>Изменить клиента: <?php echo e($client->id); ?></h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-warning" href="{{ route('clients.index') }}">Вернуться назад</a>
+                    <a class="btn btn-warning" href="<?php echo e(route('clients.index')); ?>">Вернуться назад</a>
                 </div>
             </div>
         </div>
 
-        @if (count($errors) > 0)
+        <?php if(count($errors) > 0): ?>
         <div class="alert alert-danger">
             <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
+                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
         </div>
-        @endif
+        <?php endif; ?>
 
-        <form action="{{ route('clients.update',$client->id) }}" method="POST">
-            @csrf
-            @method('PUT')
+        <form action="<?php echo e(route('clients.update',$client->id)); ?>" method="POST">
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
             <div class="row">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="">Имя</span>
                     </div>
-                    <input type="text" name="name" value="{{ $client->name }}" class="form-control">
+                    <input type="text" name="name" value="<?php echo e($client->name); ?>" class="form-control">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="">Фамилия</span>
                     </div>
-                    <input type="text" name="surname" value="{{ $client->surname }}" class="form-control">
+                    <input type="text" name="surname" value="<?php echo e($client->surname); ?>" class="form-control">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="">Отчество</span>
                     </div>
-                    <input type="text" name="patronymic" value="{{ $client->patronymic }}" class="form-control">
+                    <input type="text" name="patronymic" value="<?php echo e($client->patronymic); ?>" class="form-control">
                 </div>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Дата рождения</span>
                 </div>
-                <input type="date" name="bth" value="{{ $client->bth }}" class="form-control">
+                <input type="date" name="bth" value="<?php echo e($client->bth); ?>" class="form-control">
 
             </div>
             <div class="input-group mb-3">
@@ -67,7 +67,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Серия паспорта</span>
                 </div>
-                <input type="text" name="series_passport" value="{{ $client->series_passport }}" class="form-control">
+                <input type="text" name="series_passport" value="<?php echo e($client->series_passport); ?>" class="form-control">
 
             </div>
             <div class="input-group mb-3">
@@ -75,21 +75,21 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Номер паспорта</span>
                 </div>
-                <input type="text" name="number_passport" value="{{ $client->number_passport }}" class="form-control">
+                <input type="text" name="number_passport" value="<?php echo e($client->number_passport); ?>" class="form-control">
 
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Дата выдачи</span>
                 </div>
-                <input type="date" name="date_of_issue" value="{{ $client->date_of_issue }}" class="form-control">
+                <input type="date" name="date_of_issue" value="<?php echo e($client->date_of_issue); ?>" class="form-control">
             </div>
             <div class="input-group mb-3">
 
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Срок окончания действия</span>
                 </div>
-                <input type="date" name="expiration_date" value="{{ $client->expiration_date }}" class="form-control">
+                <input type="date" name="expiration_date" value="<?php echo e($client->expiration_date); ?>" class="form-control">
 
             </div>
             <div class="input-group mb-3">
@@ -97,7 +97,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Орган выдавший документ</span>
                 </div>
-                <input type="text" name="government_agency" value="{{ $client->government_agency }}" class="form-control">
+                <input type="text" name="government_agency" value="<?php echo e($client->government_agency); ?>" class="form-control">
 
             </div>
             <div class="input-group mb-3">
@@ -105,7 +105,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Место рождения</span>
                 </div>
-                <input type="text" name="place_of_birth" value="{{ $client->place_of_birth }}" class="form-control">
+                <input type="text" name="place_of_birth" value="<?php echo e($client->place_of_birth); ?>" class="form-control">
 
             </div>
             <div class="input-group mb-3">
@@ -139,4 +139,4 @@
 
 </body>
 
-</html>
+</html><?php /**PATH /Users/daniilalekseev/Downloads/laba5/orkis_web/resources/views/clients/edit.blade.php ENDPATH**/ ?>

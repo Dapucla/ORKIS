@@ -9,7 +9,7 @@
     <title>Edit</title>
 </head>
 
-<body>
+<body style="background-color:#96CEB4;">
     <div class='container p-4' style="margin-bottom: 100px;">
         <div class="row">
             <div class="d-flex flex-row justify-content-between bd-highlight col-lg-12 margin-tb">
@@ -23,7 +23,7 @@
         </div>
 
         <?php if($errors->any()): ?>
-        <div class="alert alert-danger">
+        <div class="alert alert-primary">
             <ul>
                 <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li><?php echo e($error); ?></li>
@@ -36,36 +36,44 @@
             <?php echo csrf_field(); ?>
             <?php echo method_field('PUT'); ?>
             <div class="row">
-                <div class="mb-3">
-                    <strong>Имя:</strong>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Имя</span>
+                    </div>
                     <input type="text" name="name" value="<?php echo e($employee->name); ?>" class="form-control">
                 </div>
-                <div class="mb-3">
-                    <strong>Фамилия:</strong>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Фамилия</span>
+                    </div>
                     <input type="text" name="surname" value="<?php echo e($employee->surname); ?>" class="form-control">
                 </div>
-                <div class="mb-3">
-                    <div class="form-group">
-                        <strong>Имя:</strong>
-                        <input type="text" name="patronymic" value="<?php echo e($employee->patronymic); ?>" class="form-control">
+                <div class="input-group mb-3">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Отчество</span>
                     </div>
+                    <input type="text" name="patronymic" value="<?php echo e($employee->patronymic); ?>" class="form-control">
+
                 </div>
-                <div class="mb-3">
-                    <div class="form-group">
-                        <strong>Дата рождения:</strong>
-                        <input type="date" name="bth" value="<?php echo e($employee->bth); ?>" class="form-control">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Дата рождения</span>
                     </div>
+                    <input type="date" name="bth" value="<?php echo e($employee->bth); ?>" class="form-control">
                 </div>
-                <div class="mb-3">
-                    <div class="form-group">
-                        <strong>Фото:</strong>
-                        <input type="text" id='photo' name="photo" value="<?php echo e($employee->photo); ?>" class="form-control" disabled>
-                        <input type="file" id='photo' name="photo" class="form-control">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Фото</span>
                     </div>
+                    <input type="text" id='photo' name="photo" value="<?php echo e($employee->photo); ?>" class="form-control" disabled>
+                    <input type="file" id='photo' name="photo" class="form-control">
                 </div>
-                <div class="mb-3">
+                <div class="input-group mb-3">
                     <div class="form-group">
-                        <strong>Должность:</strong>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Должность</span>
+                        </div>
                         <select id="position" name='type_position' class="form-select" aria-label="Default select example" required>
                             <option <?php if ($employee->type_position == 'Бухгалтер') echo ("selected"); ?> value="1">Бухгалтер</option>
                             <option <?php if ($employee->type_position == 'Администратор') echo ("selected"); ?> value="2">Администратор</option>
@@ -74,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                    <button type="submit" class="btn btn-warning">Сохранить изменения</button>
                 </div>
             </div>
         </form>

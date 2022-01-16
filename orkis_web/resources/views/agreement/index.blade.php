@@ -10,8 +10,8 @@
 
 <div class="d-flex flex-column bd-highlight mb-3 align-items-center">
     <div class="d-flex flex-row justify-content-between bd-highlight mb-3">
-        <table class="table table-striped ">
-            <thead>
+        <table class="table table-bordered">
+            <thead class="thead-dark" style="background-color: #064635; color:aliceblue">
                 <tr>
                     <th scope="col">Согл.</th>
                     <th scope="col">Дата оформления</th>

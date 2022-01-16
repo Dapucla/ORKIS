@@ -2,41 +2,66 @@
 
 <div class="d-flex flex-row justify-content-between">
     <div>
-        <h2>Клиенты</h2>
+        <h1>Клиенты</h1>
     </div>
-    <div class="d-flex justify-content-end" style="align-self: center;"><a href="clients/create" class="btn btn-warning mb-2">Добавить нового клиента</a></div>
+    <div class="d-flex justify-content-end" style="align-self: center;"><a href="clients/create" class="btn btn-warning mb-">Добавить нового клиента</a></div>
 </div>
 
 <div class="d-flex flex-column bd-highlight mb-3 align-items-center">
     <?php if(count($clients) > 0): ?>
     <?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <div class="d-flex flex-row justify-content-between bd-highlight mb-3 card" style="width: 50rem;">
+    <div class="d-flex flex-row justify-content-between bd-highlight mb-3 card input-group" style="width: 100rem; padding: 2rem; margin: 3rem">
         <div class="p-2 bd-highlight" style="align-self:center">
-            <strong>Имя:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Имя</span>
+            </div>
             <p><?php echo e($client->name); ?></p>
-            <strong>Фамилия:</strong>
+
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Фамилия</span>
+            </div>
             <p><?php echo e($client->surname); ?></p>
-            <strong>Отчество:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Отчество</span>
+            </div>
             <p><?php echo e($client->patronymic); ?> </p>
-            <strong>Дата рождения:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Дата рождения</span>
+            </div>
             <p><?php echo e($client->bth); ?> </p>
-            <strong>Серия паспорта:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Серия паспорта</span>
+            </div>
             <p><?php echo e($client->series_passport); ?> </p>
-            <strong>Номер паспорта:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Серия номер</span>
+            </div>
             <p><?php echo e($client->number_passport); ?> </p>
         </div>
         <div class="p-2 bd-highlight" style="align-self:center">
-            <strong>Дата выдачи паспорта:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Дата выдачи</span>
+            </div>
             <p><?php echo e($client->date_of_issue); ?> </p>
-            <strong>Дата окончания срока действия</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Срок окончания действия </span>
+            </div>
             <p><?php echo e($client->expiration_date); ?> </p>
-            <strong>Орган выдавший документ:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Орган выдавший документ</span>
+            </div>
             <p><?php echo e($client->government_agency); ?> </p>
-            <strong>Место рождения:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Место рождения</span>
+            </div>
             <p><?php echo e($client->place_of_birth); ?> </p>
-            <strong>Пол:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Пол</span>
+            </div>
             <p><?php echo e($client->type_sex); ?> </p>
-            <strong>Статус клиента:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Статус</span>
+            </div>
             <p><?php echo e($client->type_client); ?></p>
         </div>
         <div class="p-2 bd-highlight d-flex  align-items-end">
@@ -62,16 +87,16 @@
 <?php $__env->startSection('form'); ?>
 <form class="d-flex" method="get" action="/clients/filter">
     <select id="typeClient" name='filter' class="form-select" aria-label="Default select example" required>
-        <option disabled>Фильтр по статусу </option>
+        <option disabled>Фильтр</option>
         <option value="1">VIP</option>
         <option value="2">Привилегированный</option>
         <option value="3">Обычный</option>
     </select>
-    <button type='submit' class="btn btn-outline-warning" style="margin-left:10px; margin-right:20px;">Фильтр</button>
+    <button type='submit' class="btn btn-warning" style="margin-left:10px; margin-right:20px;">Фильтровать</button>
 </form>
 <form class="d-flex" method="get" action="/clients/search">
-    <input class="form-control me-2" type="text" id="search" name="text" placeholder="Поиск по фамилии" aria-label="Search">
-    <button type='submit' class="btn btn-outline-warning">Искать</button>
+    <input class="form-control me-2" type="text" id="search" name="text" placeholder="Поиск" aria-label="Search">
+    <button type='submit' class="btn btn-warning">Искать</button>
 </form>
 <?php $__env->stopSection(); ?>
 

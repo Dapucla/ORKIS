@@ -14,17 +14,18 @@
 
     <div class=" container p-5" style="margin-bottom: 100px;">
         <h1>Создание нового клиента</h1>
-        @if (count($errors) > 0)
+        <?php if(count($errors) > 0): ?>
         <div class="alert alert-danger">
             <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
+                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
         </div>
-        @endif
+        <?php endif; ?>
         <form method="post" action="/clients">
-            {{ csrf_field() }}
+            <?php echo e(csrf_field()); ?>
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Имя</span>
@@ -121,4 +122,4 @@
 
 </body>
 
-</html>
+</html><?php /**PATH /Users/daniilalekseev/Downloads/laba5/orkis_web/resources/views/clients/create.blade.php ENDPATH**/ ?>

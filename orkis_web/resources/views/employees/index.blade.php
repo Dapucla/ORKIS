@@ -15,25 +15,39 @@
 <div class="d-flex flex-column bd-highlight mb-3 align-items-center">
     @if (count($employees) > 0)
     @foreach ($employees as $employee)
-    <div class="d-flex flex-row justify-content-between bd-highlight mb-3 card" style="width: 50rem;">
+    <div class="d-flex flex-row justify-content-between bd-highlight mb-3 card" style="width: 100rem;">
         <div class="p-2 bd-highlight" style="align-self:center">
-            <strong>Имя:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Имя</span>
+            </div>
             <p>{{ $employee->name }}</p>
-            <strong>Фамилия:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Фамилия</span>
+            </div>
             <p>{{ $employee->surname }}</p>
-            <strong>Отчество:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Отчество</span>
+            </div>
             <p>{{ $employee->patronymic }} </p>
-            <strong>Дата рождения:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Дата рождения</span>
+            </div>
             <p>{{ $employee->bth }} </p>
-            <strong>Должность сотрудника:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Должность</span>
+            </div>
             <p>{{$employee->type_position }} </p>
-            <strong>Организация:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Организация</span>
+            </div>
             <p>{{$employee->organization_name}}</p>
         </div>
         <div class="p-2 bd-highlight">
-            <strong>Фото сотрудника:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Фото сотрудника</span>
+            </div>
             <p><img src="{{ asset('storage/' .$employee->photo) }}" alt="photo" height='250px'> </p>
-            <a href="{{ Storage::url($employee->photo) }}" download class="btn btn-outline-success">Скачать изображение</a>
+            <a href="{{ Storage::url($employee->photo) }}" download class="btn btn-warning">Скачать изображение</a>
         </div>
         <div class="p-2 bd-highlight d-flex  align-items-end">
             <div>

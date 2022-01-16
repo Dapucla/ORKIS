@@ -2,14 +2,14 @@
 
 <div class="d-flex flex-row justify-content-between">
     <div>
-        <h2>Не оплаченные договора</h2>
+        <h2>Неоплаченные договора</h2>
     </div>
     <div class="d-flex justify-content-end" style="align-self: center;"><a href="contract/create" class="btn btn-warning mb-2">Создать новый договор</a></div>
 </div>
 
 <div class="d-flex flex-column bd-highlight mb-3 align-items-center">
-    <table class="table table-sm table-striped ">
-        <thead>
+    <table class="table table-bordered">
+        <thead style="background-color: #064635; color:aliceblue">
             <tr>
                 <th scope="col">Договор</th>
                 <th scope="col">Согл.</th>

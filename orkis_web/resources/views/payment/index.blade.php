@@ -9,10 +9,10 @@
 </div>
 
 <div class="d-flex flex-column bd-highlight mb-3 align-items-center">
-    <table class="table table-striped ">
-        <thead>
+    <table class="table table-bordered ">
+        <thead style="background-color: #064635; color:aliceblue">
             <tr>
-                <th scope="col">#</th>
+                <th scope=" col">#</th>
                 <th scope="col">Номер договора</th>
                 <th scope="col">Дата оплаты</th>
                 <th scope="col">Организация</th>

@@ -15,17 +15,18 @@
 
     <div class="container p-5" style="margin-bottom: 100px;">
         <h1>Создание соглашения</h1>
-        @if (count($errors) > 0)
+        <?php if(count($errors) > 0): ?>
         <div class="alert alert-danger">
             <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
+                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
         </div>
-        @endif
+        <?php endif; ?>
         <form method="post" action="/agreement" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            <?php echo e(csrf_field()); ?>
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Дата создание соглашения</span>
@@ -38,9 +39,9 @@
                 </div>
                 <select onchange="getOrganization(this.value)" id="org" name='organization_name' class="form-select" aria-label="Default select example" required>
                     <option disabled>Выберите организацию</option>
-                    @foreach($listOrganizations as $organization)
-                    <option value="{{ $organization->id }}">{{ $organization->organization_name }}</option>
-                    @endforeach
+                    <?php $__currentLoopData = $listOrganizations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $organization): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($organization->id); ?>"><?php echo e($organization->organization_name); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </div>
             <div class="input-group mb-3">
@@ -49,9 +50,9 @@
                 </div>
                 <select onchange="getCountry(this.value)" id="country" name='country' class="form-select" aria-label="Default select example" required>
                     <option disabled>Выберите страну посещения</option>
-                    @foreach($listCountry as $country)
-                    <option value="{{ $country->id }}">{{ $country->name_country }}</option>
-                    @endforeach
+                    <?php $__currentLoopData = $listCountry; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($country->id); ?>"><?php echo e($country->name_country); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </div>
             <div class="input-group mb-3">
@@ -60,9 +61,9 @@
                 </div>
                 <select id="client" name='client' class="form-select" aria-label="Default select example" required>
                     <option disabled>Выберите клиента</option>
-                    @foreach($listClient as $client)
-                    <option value="{{ $client->id }}">{{ $client->surname }} {{ $client->name }} {{ $client->patronymic }}</option>
-                    @endforeach
+                    <?php $__currentLoopData = $listClient; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($client->id); ?>"><?php echo e($client->surname); ?> <?php echo e($client->name); ?> <?php echo e($client->patronymic); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </div>
             <div class="input-group mb-3">
@@ -242,4 +243,4 @@
             }
         }
     }
-</script>
+</script><?php /**PATH /Users/daniilalekseev/Downloads/laba5/orkis_web/resources/views/agreement/create.blade.php ENDPATH**/ ?>

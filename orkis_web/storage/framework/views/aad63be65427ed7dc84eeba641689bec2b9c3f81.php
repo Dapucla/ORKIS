@@ -14,25 +14,39 @@
 <div class="d-flex flex-column bd-highlight mb-3 align-items-center">
     <?php if(count($employees) > 0): ?>
     <?php $__currentLoopData = $employees; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $employee): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <div class="d-flex flex-row justify-content-between bd-highlight mb-3 card" style="width: 50rem;">
+    <div class="d-flex flex-row justify-content-between bd-highlight mb-3 card" style="width: 100rem;">
         <div class="p-2 bd-highlight" style="align-self:center">
-            <strong>Имя:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Имя</span>
+            </div>
             <p><?php echo e($employee->name); ?></p>
-            <strong>Фамилия:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Фамилия</span>
+            </div>
             <p><?php echo e($employee->surname); ?></p>
-            <strong>Отчество:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Отчество</span>
+            </div>
             <p><?php echo e($employee->patronymic); ?> </p>
-            <strong>Дата рождения:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Дата рождения</span>
+            </div>
             <p><?php echo e($employee->bth); ?> </p>
-            <strong>Должность сотрудника:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Должность</span>
+            </div>
             <p><?php echo e($employee->type_position); ?> </p>
-            <strong>Организация:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Организация</span>
+            </div>
             <p><?php echo e($employee->organization_name); ?></p>
         </div>
         <div class="p-2 bd-highlight">
-            <strong>Фото сотрудника:</strong>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Фото сотрудника</span>
+            </div>
             <p><img src="<?php echo e(asset('storage/' .$employee->photo)); ?>" alt="photo" height='250px'> </p>
-            <a href="<?php echo e(Storage::url($employee->photo)); ?>" download class="btn btn-outline-success">Скачать изображение</a>
+            <a href="<?php echo e(Storage::url($employee->photo)); ?>" download class="btn btn-warning">Скачать изображение</a>
         </div>
         <div class="p-2 bd-highlight d-flex  align-items-end">
             <div>

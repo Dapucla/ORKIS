@@ -9,7 +9,7 @@
     @yield('title')
 </head>
 
-<body>
+<body style="background-color:#96CEB4;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(15, 127, 10) !important;">
         <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">Тур агенство</a> -->
@@ -26,9 +26,9 @@
                     $checkRole = model_has_roles::where('model_id', '=', Auth::user()->id)->get('role_id');
                     ?>
                     @if($checkRole[0]->role_id == 4 || $checkRole[0]->role_id == 2 || $checkRole[0]->role_id == 3 || $checkRole[0]->role_id == 1)
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="/">Главная</a>
-                    </li>
+                    </li> -->
                     @endif
                     @if($checkRole[0]->role_id == 1)
                     <li class="nav-item">
